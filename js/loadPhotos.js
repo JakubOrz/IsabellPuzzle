@@ -1,10 +1,11 @@
 let portalData = undefined;
 
 function downloadData(){
-    fetch(`https://api.jsonbin.io/v3/b/6362c0b265b57a31e6aaea6d/latest`)
+    fetch(`data/alldata.json`)
         .then(response => response.json())
         .then(json => {
-            portalData = json.record;
+            console.log(json)
+            portalData = json;
             getPossibleCities();
             reloadPhotos2();
         }).catch((e) => {
