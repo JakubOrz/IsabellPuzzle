@@ -23,6 +23,26 @@ body #searchbar {
     box-shadow: 0 4px 8px 0 #28282f;
 }
 
+
+body #portal-link{
+    position: fixed;
+    padding: 2px;
+    bottom:  0;
+    border-radius: 15px;
+    left: 25%;
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    z-index: 20;
+    background-image: linear-gradient(to right, #cecece, #b0c4c9);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #0b0b0c;
+    font-size: 1.4em;
+    align-items: center;
+}
+
 body #searchbar > span {
     font-size: 1.3em;
 }

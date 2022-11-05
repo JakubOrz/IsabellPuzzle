@@ -61,7 +61,15 @@ const setSelector = () =>{
 
 const copyLink2 = (htmlElement) => {
     let inputText = document.createElement('input');
-    inputText.setAttribute('value', htmlElement.target.innerHTML.replaceAll("amp;",""));
+    // console.log("Click event");
+    // console.log(htmlElement.target.innerText);
+    // console.log(htmlElement.target.textContent);
+    // console.log(htmlElement.target);
+    let linkField = document.getElementById("portal-link");
+    let link = htmlElement.target.textContent.replaceAll("amp;","")
+    console.log(link);
+    linkField.setAttribute('value', link);
+    inputText.setAttribute('value', link);
     document.body.appendChild(inputText);
     inputText.select();
     document.execCommand("copy");

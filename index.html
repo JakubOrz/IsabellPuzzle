@@ -14,7 +14,7 @@
 <body onload="onDocumentLoaded()">
     <div id="searchbar">
 
-            <span id="page-tittle">Izabeli szukacz portali<br>kliknij na zdjęcie aby skopiować link do portalu</span>
+            <span id="page-tittle">Izabeli szukacz portali v2<br>kliknij na zdjęcie aby skopiować link do portalu</span>
             <input class="inputField" type="search" id="portalSearch" oninput=input() placeholder="Wyszukaj" title="Szukaj portalu po nazwie">
 
             <select oninput="cityChange()" class="inputField" name="city" id="city-Select">
@@ -22,5 +22,6 @@
     </div>
     <div id="photos"></div>
     <div class="lds-ring" id="loader"><div></div><div></div><div></div><div></div></div>
+    <input id="portal-link" placeholder="Portal link">
 </body>
 </html>

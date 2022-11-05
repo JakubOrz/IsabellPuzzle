@@ -41,11 +41,13 @@ function reloadPhotos2(cityname = undefined){
         loader.parentNode.removeChild(loader);
     }
     portalData[city].forEach(portal => {
+
+
         let photoElement = document.createElement('img');
         photoElement.src = portal.image;
         photoElement.alt = portal.title;
         photoElement.innerText = generateIntelLink(portal.lat, portal.lng);
-        photoElement.addEventListener('click', copyLink2)
+        photoElement.addEventListener('click', copyLink2);
         photosDiv.appendChild(photoElement);
     })
 
