@@ -1,7 +1,8 @@
 let portalData = undefined;
 
 function downloadData(){
-    fetch(`data/alldata.json`)
+    fetch('data/alldata.json'
+        )
         .then(response => response.json())
         .then(json => {
             console.log(json)
