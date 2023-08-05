@@ -1,18 +1,19 @@
 let portalData = undefined;
+//const loaderClone = document.getElementById("loader").cloneNode(true)
+
 
 function downloadData(){
-    fetch('data/alldata.json'
-        )
+    fetch('https://api.allorigins.win/raw?url=https://pastebin.com/raw/tZzxDK4A')
         .then(response => response.json())
         .then(json => {
-            console.log(json)
             portalData = json;
+            //console.log(portalData);
             getPossibleCities();
             reloadPhotos2();
         }).catch((e) => {
         console.error("Problem z załadowaniem zdjęć" + e.toString())
     });
-    console.log("Pobrano dane z bin")
+    //console.log("Pobrano dane z bin")
 }
 
 function generateIntelLink(lat, lng){
@@ -38,18 +39,35 @@ function reloadPhotos2(cityname = undefined){
     let photosDiv = document.getElementById("photos");
     photosDiv.replaceChildren();
     let loader = document.getElementById('loader');
-    if (loader != null) {
-        loader.parentNode.removeChild(loader);
+
+    fetch("https://api.allorigins.win/raw?url="+portalData[city])
+        .then(res => res.json())
+        .then(res => {res.forEach(portal => {
+                let photoElement = document.createElement('img');
+                photoElement.src = portal.image;
+                photoElement.alt = portal.title;
+                photoElement.innerText = generateIntelLink(portal.lat, portal.lng);
+                photoElement.addEventListener('click', copyLink2);
+                photosDiv.appendChild(photoElement);
+                }
+            )
+        if (loader != null) {
+            loader.parentNode.removeChild(loader);
+        }
+
     }
-    portalData[city].forEach(portal => {
+        )
+        .catch(error => console.error(error));
 
-
-        let photoElement = document.createElement('img');
-        photoElement.src = portal.image;
-        photoElement.alt = portal.title;
-        photoElement.innerText = generateIntelLink(portal.lat, portal.lng);
-        photoElement.addEventListener('click', copyLink2);
-        photosDiv.appendChild(photoElement);
-    })
+    // portalData[city].forEach(portal => {
+    //
+    //
+    //     let photoElement = document.createElement('img');
+    //     photoElement.src = portal.image;
+    //     photoElement.alt = portal.title;
+    //     photoElement.innerText = generateIntelLink(portal.lat, portal.lng);
+    //     photoElement.addEventListener('click', copyLink2);
+    //     photosDiv.appendChild(photoElement);
+    // })
 
 }
