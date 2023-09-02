@@ -36,7 +36,7 @@ const makeInfoNotification = () => {
 const cityChange = () => {
     let selector = document.getElementById('city-Select');
     let option = selector.value;
-    reloadPhotos2(option);
+    reloadPhotos3(option);
 }
 
 const getPossibleCities = () => {
@@ -79,6 +79,6 @@ const copyLink2 = (htmlElement) => {
 }
 
 function onDocumentLoaded(){
-    downloadData();
+    downloadData3();
 }
 
