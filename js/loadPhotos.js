@@ -34,7 +34,7 @@ function reloadPhotos2(cityname = undefined){
     else{
         city = cityname;
     }
-    // console.log(`info: ładowanie danych z miasta ${city}`);
+    console.log(`info: ładowanie danych z miasta ${city}`);
     let photosDiv = document.getElementById("photos");
     photosDiv.replaceChildren();
     let loader = document.getElementById('loader');
