@@ -53,6 +53,7 @@ const getPossibleCities = () => {
 const setSelector = () =>{
     const urlSearchParams = new URLSearchParams(window.location.search);
     let city = Object.fromEntries(urlSearchParams.entries()).city;
+    console.log(city);
     if (typeof city !== 'undefined'){
         let selector = document.getElementById('city-Select');
         selector.value = city;
